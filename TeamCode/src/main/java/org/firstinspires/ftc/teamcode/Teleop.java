@@ -8,6 +8,7 @@ import org.firstinspires.ftc.teamcode.subsystems.Arm;
 import org.firstinspires.ftc.teamcode.subsystems.Claw;
 import org.firstinspires.ftc.teamcode.subsystems.Drive;
 import org.firstinspires.ftc.teamcode.subsystems.OI;
+import org.firstinspires.ftc.teamcode.subsystems.Sensors;
 
 @TeleOp(name="TeleOp", group="Teleop")
 public class Teleop extends OpMode {
@@ -17,6 +18,7 @@ public class Teleop extends OpMode {
     private Drive drive_;
     private Claw claw_;
     private Arm arm_;
+    private Sensors sensors_;
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -27,6 +29,7 @@ public class Teleop extends OpMode {
         drive_ = new Drive(this);
         claw_ = new Claw(this);
         arm_ = new Arm(this);
+        sensors_ = new Sensors(this);
     }
 
     /*
@@ -42,6 +45,9 @@ public class Teleop extends OpMode {
     @Override
     public void start() {
         runtime_.reset();
+
+        // Move Jewel arm up
+        sensors_.moveJewelArmUp();
     }
 
     /*
