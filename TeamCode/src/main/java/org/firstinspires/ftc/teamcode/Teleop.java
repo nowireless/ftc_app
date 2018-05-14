@@ -58,6 +58,7 @@ public class Teleop extends OpMode {
         }
 
         // Update the Arm Subsystem
+        // Move arm back and forward
         if(oi_.moveArmBackward()) {
             arm_.moveBackward();
         } else if(oi_.moveArmForward()) {
@@ -67,6 +68,7 @@ public class Teleop extends OpMode {
             arm_.moveStop();
         }
 
+        // Tilt the arm up and down
         if(oi_.tiltArmDown()) {
             arm_.decermentTilt();
         } else if(oi_.tiltArmUp()) {
