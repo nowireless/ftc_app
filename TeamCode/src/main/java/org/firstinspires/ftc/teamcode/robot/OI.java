@@ -28,11 +28,27 @@ public class OI {
         return gamepad1_.right_stick_x;
     }
 
-    public boolean openClawButton() {
+    public boolean openClaw() {
+        return gamepad2_.dpad_left;
+    }
+
+    public boolean closeClaw() {
+        return gamepad2_.dpad_right;
+    }
+
+    public boolean moveArmForward() {
+        return gamepad2_.a;
+    }
+
+    public boolean moveArmBackward() {
         return gamepad2_.b;
     }
 
-    public boolean closeClawButton() {
-        return gamepad2_.a;
+    public boolean tiltArmUp() {
+        return gamepad2_.dpad_up;
+    }
+
+    public boolean tiltArmDown() {
+        return gamepad2_.dpad_down;
     }
 }

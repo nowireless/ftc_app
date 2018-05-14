@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.teamcode.robot.Arm;
 import org.firstinspires.ftc.teamcode.robot.Claw;
 import org.firstinspires.ftc.teamcode.robot.Drive;
 import org.firstinspires.ftc.teamcode.robot.OI;
@@ -13,7 +14,7 @@ public class Teleop extends OpMode {
     private OI oi_;
     private Drive drive_;
     private Claw claw_;
-
+    private Arm arm_;
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -23,6 +24,7 @@ public class Teleop extends OpMode {
         oi_ = new OI(this);
         drive_ = new Drive(this);
         claw_ = new Claw(this);
+        arm_ = new Arm(this);
     }
 
     /*
@@ -49,13 +51,29 @@ public class Teleop extends OpMode {
         drive_.driveCartesian(oi_.moveLinearY(), oi_.moveLinearX(), oi_.moveRotateTheta());
 
         // Update claw subsystem
-        if(oi_.closeClawButton()) {
+        if(oi_.closeClaw()) {
             claw_.closeClaw();
-        } else if(oi_.openClawButton()) {
+        } else if(oi_.openClaw()) {
             claw_.openClaw();
         }
 
         // Update the Arm Subsystem
+        if(oi_.moveArmBackward()) {
+            arm_.moveBackward();
+        } else if(oi_.moveArmForward()) {
+            arm_.moveForward();
+        } else {
+            // Stop movement, when no button is pressed
+            arm_.moveStop();
+        }
+
+        if(oi_.tiltArmDown()) {
+            arm_.decermentTilt();
+        } else if(oi_.tiltArmUp()) {
+            arm_.incrementTilt();
+        } else {
+            arm_.stopTilt();
+        }
     }
 
     /*
