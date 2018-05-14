@@ -3,10 +3,10 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-import org.firstinspires.ftc.teamcode.robot.Arm;
-import org.firstinspires.ftc.teamcode.robot.Claw;
-import org.firstinspires.ftc.teamcode.robot.Drive;
-import org.firstinspires.ftc.teamcode.robot.OI;
+import org.firstinspires.ftc.teamcode.subsystems.Arm;
+import org.firstinspires.ftc.teamcode.subsystems.Claw;
+import org.firstinspires.ftc.teamcode.subsystems.Drive;
+import org.firstinspires.ftc.teamcode.subsystems.OI;
 
 public class Teleop extends OpMode {
     private ElapsedTime runtime_ = new ElapsedTime();
