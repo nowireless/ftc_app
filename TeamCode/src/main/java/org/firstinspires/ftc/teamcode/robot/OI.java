@@ -27,4 +27,12 @@ public class OI {
     public double moveRotateTheta() {
         return gamepad1_.right_stick_x;
     }
+
+    public boolean openClawButton() {
+        return gamepad2_.b;
+    }
+
+    public boolean closeClawButton() {
+        return gamepad2_.a;
+    }
 }

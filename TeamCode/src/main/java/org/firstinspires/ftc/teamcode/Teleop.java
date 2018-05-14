@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
+import org.firstinspires.ftc.teamcode.robot.Claw;
 import org.firstinspires.ftc.teamcode.robot.Drive;
 import org.firstinspires.ftc.teamcode.robot.OI;
 
@@ -11,6 +12,7 @@ public class Teleop extends OpMode {
 
     private OI oi_;
     private Drive drive_;
+    private Claw claw_;
 
 
     /*
@@ -20,6 +22,7 @@ public class Teleop extends OpMode {
     public void init() {
         oi_ = new OI(this);
         drive_ = new Drive(this);
+        claw_ = new Claw(this);
     }
 
     /*
@@ -42,7 +45,17 @@ public class Teleop extends OpMode {
      */
     @Override
     public void loop() {
+        // Update drive subsystem
         drive_.driveCartesian(oi_.moveLinearY(), oi_.moveLinearX(), oi_.moveRotateTheta());
+
+        // Update claw subsystem
+        if(oi_.closeClawButton()) {
+            claw_.closeClaw();
+        } else if(oi_.openClawButton()) {
+            claw_.openClaw();
+        }
+
+        // Update the Arm Subsystem
     }
 
     /*
