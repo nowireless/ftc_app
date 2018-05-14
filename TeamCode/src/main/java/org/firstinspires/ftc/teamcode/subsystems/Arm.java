@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
 import com.qualcomm.robotcore.util.Range;
 
+import org.firstinspires.ftc.teamcode.RobotMap;
+
 public class Arm {
 
     private enum TiltState {
@@ -37,9 +39,9 @@ public class Arm {
     private ElapsedTime timer_ = new ElapsedTime();
 
     public Arm(OpMode opmode) {
-        moveServo_ = opmode.hardwareMap.get(CRServo.class, "arm_move");
-        tiltLeftServo_ = opmode.hardwareMap.get(Servo.class, "arm_tilt_left");
-        tiltRightServo_ = opmode.hardwareMap.get(Servo.class, "arm_tilt_right");
+        moveServo_ = opmode.hardwareMap.get(CRServo.class, RobotMap.kArmMoveServo);
+        tiltLeftServo_ = opmode.hardwareMap.get(Servo.class, RobotMap.kArmTiltLeftServo);
+        tiltRightServo_ = opmode.hardwareMap.get(Servo.class, RobotMap.kArmTiltRightServo);
 
         // Set the direction of the motor, such that a positive value moves the arm forward
         moveServo_.setDirection(DcMotorSimple.Direction.FORWARD);

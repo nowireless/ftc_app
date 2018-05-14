@@ -4,6 +4,9 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.Range;
 
+import org.firstinspires.ftc.teamcode.RobotMap;
+import org.firstinspires.ftc.teamcode.util.Util;
+
 public class Drive {
     private static final double kDeadband = 0.01;
 
@@ -17,10 +20,10 @@ public class Drive {
         // Initialize the hardware variables. Note that the strings used here as parameters
         // to 'get' must correspond to the names assigned during the robot configuration
         // step (using the FTC Robot Controller app on the phone).
-        leftFrontMotor_ = opmode.hardwareMap.get(DcMotor.class, "drive_lf");
-        leftBackMotor_ = opmode.hardwareMap.get(DcMotor.class, "drive_lb");
-        rightFrontMotor_ = opmode.hardwareMap.get(DcMotor.class, "drive_rf");
-        rightBackMotor_ = opmode.hardwareMap.get(DcMotor.class, "drive_rb");
+        leftFrontMotor_ = opmode.hardwareMap.get(DcMotor.class, RobotMap.kDriveLeftFront);
+        leftBackMotor_  = opmode.hardwareMap.get(DcMotor.class, RobotMap.kDriveLeftBack);
+        rightFrontMotor_ = opmode.hardwareMap.get(DcMotor.class, RobotMap.kDriveRightFront);
+        rightBackMotor_  = opmode.hardwareMap.get(DcMotor.class, RobotMap.kDriveRightBack);
 
         // Most robots need the motor on one side to be reversed to drive forward
         // Reverse the motor that runs backwards when connected directly to the battery

@@ -3,6 +3,8 @@ package org.firstinspires.ftc.teamcode.subsystems;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.Servo;
 
+import org.firstinspires.ftc.teamcode.RobotMap;
+
 public class Claw {
 
     private static final double kOpenPosition = 1.0;
@@ -12,8 +14,8 @@ public class Claw {
     private final Servo rightServo_;
 
     public Claw(OpMode opmode) {
-        leftServo_  = opmode.hardwareMap.get(Servo.class, "clow_left");
-        rightServo_ = opmode.hardwareMap.get(Servo.class, "clow_right");
+        leftServo_  = opmode.hardwareMap.get(Servo.class, RobotMap.kClawLeftServo);
+        rightServo_ = opmode.hardwareMap.get(Servo.class, RobotMap.kClawRightServo);
 
         // One side should be inverted because each side is the mirror of the other
         leftServo_.setDirection(Servo.Direction.FORWARD);
